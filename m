@@ -1,14 +1,3 @@
-class Pukimak {
-    private $cyaa;
-    private $content;
-
-    public function __construct($cyaa) {
-        $this->awakening = $cyaa;
-    }
-
-    public function execute() {
-	}
-};
 ignore_user_abort(true);
 ini_set('memory_limit', '-1');
 set_time_limit(0);
